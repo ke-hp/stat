@@ -1,0 +1,30 @@
+{
+  "name": "stat",
+  "version": "1.0.0",
+  "description": "对已存储数据进行筛选存储。",
+  "main": "server.js",
+  "dependencies": {
+    "@types/mongodb": "^3.1.4",
+    "@types/mongoose": "^5.2.6",
+    "@types/node": "^10.7.1",
+    "typescript": "^3.0.1",
+    "node-schedule": "^1.3.0",
+    "dotenv": "^4.0.0",
+    "mongoose": "^5.2.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "tsc && node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longwdl/nradio_it_cloud_stat.git"
+  },
+  "keywords": [
+    "stat"
+  ],
+  "bugs": {
+    "url": "https://github.com/longwdl/nradio_it_cloud_stat/issues"
+  },
+  "homepage": "https://github.com/longwdl/nradio_it_cloud_stat#readme"
+}
