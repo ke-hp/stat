@@ -28,7 +28,8 @@ RUN npm install -g typescript
 # Global install tslint
 RUN npm install tslint -g
 
-RUN tslint src/**/*.ts
+# Run code detecting apparatus 
+RUN npm run lint
 
 # Build JavaScript
 RUN tsc
