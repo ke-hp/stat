@@ -25,6 +25,11 @@ ADD . /app
 # Global install typescript
 RUN npm install -g typescript
 
+# Global install tslint
+RUN npm install tslint -g
+
+RUN tslint src/**/*.ts
+
 # Build JavaScript
 RUN tsc
 
