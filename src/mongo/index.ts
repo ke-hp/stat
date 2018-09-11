@@ -2,6 +2,7 @@ import * as fs from "fs";
 import * as mongoose from "mongoose";
 import * as path from "path";
 
+mongoose.set("useCreateIndex", true);
 mongoose.connect(
   process.env.MONGO_URI,
   { useNewUrlParser: true },
