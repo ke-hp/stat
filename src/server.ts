@@ -1,4 +1,3 @@
-global.__base = __dirname + "/";
 import * as dotenv from "dotenv";
 dotenv.config();
 import * as schedule from "node-schedule";
@@ -50,6 +49,44 @@ schedule.scheduleJob(cronDle, async () => {
 		});
 
 		console.log("Delete old station/traffic/stalist.");
+		return;
+	} catch (error) {
+		console.error(error);
+		return;
+	}
+});
+
+const cronStaGrowth = "1 0 0 * * *";
+schedule.scheduleJob(cronStaGrowth, async () => {
+	try {
+		console.log("Get StaGrowth.");
+		const nowData: any = Date.now();
+		const oneDayAgo: any = nowData - 1000 * 24 * 60 * 60;
+		const todayMaxSta: any = (await mongo.numStat
+			.find({
+				time: {
+					$gt: oneDayAgo,
+				},
+			})
+			.sort({ sta: -1 })
+			.limit(1))[0].sta;
+
+		const historyMaxSta: any = (await mongo.numStat
+			.find({
+				time: {
+					$lt: oneDayAgo,
+				},
+			})
+			.sort({ sta: -1 })
+			.limit(1))[0].sta;
+
+		const growthNum = todayMaxSta > historyMaxSta ? todayMaxSta - historyMaxSta : 0;
+		await mongo.chartData.create({
+			num: growthNum,
+			time: nowData,
+			type: "staGrowth",
+		});
+
 		return;
 	} catch (error) {
 		console.error(error);
