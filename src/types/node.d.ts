@@ -1,5 +1,5 @@
-declare namespace NodeJS  {
-    interface Global {
-        __base: any;
-    }
+declare namespace NodeJS {
+	interface Global {
+		__base: any;
+	}
 }

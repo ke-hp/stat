@@ -4,7 +4,8 @@
     "no-var-requires": false,
     "no-console": false,
     "max-line-length": false,
-    "no-namespace": [false,"error"],
-    "interface-name" : [true, "never-prefix"]
+    "no-namespace": [false, "error"],
+    "interface-name": [true, "never-prefix"],
+    "indent": [true, "tabs", 2]
   }
 }
